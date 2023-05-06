@@ -1,0 +1,100 @@
+git bash comandos:
+1º) configurando o git pela primeira vez:
+para baixar:
+~$ sudo apt install git
+para usar no ubuntu, é necessário ter uma chave SSH, que consegue da seguinte forma:
+a) no terminal escreva:
+~$ ssh-keygen -C "lucas.mdlira@gmail.com"
+será necessário criar uma senha e confirmá-la.
+copie o endereço que aparece diante da frase "your public key has been saved in <endereço_local>"
+ponha:
+~$ cat <endereço_local>
+copie toda a chave que aparece.
+b) no site do github: settings -> SSH and GPG keys -> new SSH key.
+cole a chave copiada anteriormente e dê um nome à essa chave SSH, pode ser qualquer nome.
+c) de volta no terminal, ponha:
+~$ ssh -T git@github.com
+confirme o que se pede com "yes". quando apertar enter, será solicitado aquela senha criada anteriormente.
+para finalizar, registre o email e o usuário:
+~$ git config --global user.name "lucas-mt"
+~$ git config --global user.email lucas.mdlira@gmail.com
+teste e veja se funcionou a configuração inicial:
+~$ git config --list
+ou,
+~$ git config user.name
+ou, ainda, 
+~$ git config user.email
+
+2º) crie o repositório, .gitignore, licence e o README.md no github mesmo;
+
+3º) numa pasta externa, clone o repositório criado:
+~$ git clone <SSH_url>
+isto também serve para baixar gits de outras pessoas, porém, observe que:
+~$ git clone <HTTPS_url>
+isto vai baixar como uma pasta o git remoto, e é esta pasta que deve ser usada. não têm problemas mudar o nome dela.
+
+4º) inicie o git com o comando dentro da pasta baixada:
+~$ git init -b <branch>
+se desejar upar para uma branch específica, caso não, coloque apenas:
+~$ git init
+
+5º) para ver os arquivos novos ou não salvos no remoto:
+~$ git status
+se aparecer algo vermelho é porque houve mudanças e deve ser adicinado e commitado;
+
+6º) adicione todos os arquivos com:
+~$ git add .
+se desejar adicionar um arquivo em específico, use:
+~$ git add <nome do arquivo>
+
+7º) agora, commite:
+~$ git commit -m "<título do commit>"
+
+8º) para, de fato, mandar para o repositório remoto:
+~$ git push
+
+9º) se der erro, use a linha de comando:
+~$ git pull origin main --allow-unrelated-histories
+
+10º) para ver todas as alterações use o comando:
+~$ git diff
+para observar um arquivo em específico, use:
+~$ git diff <nome do arquivo>
+
+11º) para saber qual branch está sendo usada:
+~$ git branch
+
+12º) para baixar mudanças feitas no repositório no github (remoto) para o git (local), use:
+~$ git pull origin <branch>
+
+13º) para ver o histórico de mudanças:
+~$ git log
+ou, ainda,
+~$ git log --oneline
+
+14º) para abrir o editor de testo padrão, use:
+~$ code .
+
+15º) para ver as branches que já existem:
+~$ git branch
+para criar uma:
+~$ git branch <nome>
+ou
+~$ git checkout --track -b <nome>
+para ir de uma a outra:
+~$ git checkout <outra_branch>
+para apagar uma branch vazia ou com arquivos que já foram fundidos:
+~$ git branch -d <nome>
+para apagar uma branch com arquivos que ainda não foram fundidos:
+~4 git branch -D <nome>
+
+16º) para fundir branches, vá na branch principal do projeto e faça:
+~$ git merge <branch_a_ser_fundida>
+
+17º) para ignorar arquivos ou diretório, primeiro, crie o arquivo .gitignore:
+~$ touch .gitignore
+para criar um arquivo .gitignore global, faça:
+~$ git config --global core.excludesFile ~/.gitignore
+em seguida, escreva manualmente o nome do arquivo ou diretório que não quer que seja commitado:
+~$ echo "<arq_ou_dir>" >> .gitignore
+pode colocar caracteres-coringas se não quiser especificar um arquivo ou diretório, mas desejar excluir todos que tenham alguma característica.

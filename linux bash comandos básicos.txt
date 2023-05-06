@@ -1,0 +1,249 @@
+--terminal--
+para abrir o terminal:
+ctrl+alt+t
+
+para limpar o terminal:
+~$ clear
+ou,
+ctrl+l
+
+aperte duas vezes 'tab' para ver as sugestões de diretórios e arquivos.
+
+para ver como está a cpu está trabalhando e quanto de memória está sendo usado:
+~$ htop
+
+uma forma de fechar qualquer app, se este travar, por exemplo:
+~$ xkill
+em seguida, aperta na tab que quer fechar
+
+uma forma de ver o endereço IP de qualquer site é:
+~$ nslookup <site>
+
+para saber o nome do usuário:
+~$ whoami
+para saber o nome da máquina:
+~$ hostname
+
+para saber o IP da máquina:
+~$ hostname -I
+ou, se quier informações mais completas:
+~$ ip a
+
+para checar se um site está respondendo:
+~$ ping <site>
+
+para ver informações do uso de memória:
+~$ free -h
+ou,
+~$ free -m
+ou, se quiser mais detalhes:
+~$ df -h
+
+para ver como a memória está sendo usada:
+~$ ncdu
+é necessário baixar se ainda não tiver:
+~$ sudo apt install ncdu
+é possível deletar uma aplicação, diretório ou arquivo apertando a tecla D e, em seguida, confirmando com o popup que aparece na tela. para isto é necessário que o que vai ser deletado esteja selecionado.
+ainda é possível ver especificamente como a memória está sendo usada por uma aplicação, diretório ou arquivo:
+~$ ndc <app_dir_arq> 
+
+informações sobre o kernel podem ser obtidas com:
+~$ uname
+ou, para informações mais completas:
+~$ uname -r
+
+para ver o hitórico de todos os comandos usados no terminal:
+~$ history
+alias('history') = h
+use !! para completar a linha de comando com o comando anterior.
+use !<número_linha> observado no comando "history" para que este comando seja copiado.
+
+para criar apelidos e falicitar comandos:
+~$ alias <apelido>=<comando>
+a partir daí, usa o apelido quando quiser utilizar este comando. Porém, só serve enquanto o terminal estiver aberto. Quando fechar, o sistema irá esquecer deste apelido.
+para tornar o alias fixo é necessário, em ~/, encontrar o arquivo .bashrc, que é nativo do sistema, e, nele, adicionar os alias que desejar; ou, encontrar o arquivo .bash_aliases, que é criado pelo usuário, e, nele, adicionar os alias que desejar. 
+para ver todos os apelidos registrados, temporários ou não:
+~$ alias
+
+--buscando por caracteres no terminal--
+use * quando quiser indicar em que canto da palavra tal caractere está; use ? quano não souber qual caractere ocupa aquela posição.
+outra forma é pela criação de listas de caracteres, por exemplo:
+~$ ls f[a-i]*
+ou, não precisa do tracinho, então, o resultado é o mesmo para:
+~$ ls f[ai]*
+ou seja, encontra todos os arquivos que termina com f seguido de qualquer letra que esteja entre entre a e i na ordem alfabética.
+pode-se evoluir este comando:
+~$ ls f[a-c,i]*
+~$ ls *[b-g,z]*
+assim, sucessivamente.
+há diferença entre colchetes e chaves:
+~$ ls *{am,ul}*
+neste caso, não pode criar combinações, mas procura-se apenas os padrões mostrados entre chaves.
+com um ponto no início será procurado arquivos com aquela extensão:
+~$ ls *.{conf,pdf,db,txt}
+lembre-se que há diferença entre maiúscula e minúscula.
+
+se quiser encontrar um arquivo:
+~$ find . -name <nome_arq>
+se quiser encontrar todos os arquivos que començam com determinados caracteres:
+~$ find . -name *<nome_arq>
+se quiser aqueles que terminam:
+~$ find . -name <nome_arq>*
+se quiser encontrar qualquer um:
+~$ find . -name *<nome_arq>*
+alias('find . -name') = ache
+
+--manipulando arquivos e diretórios--
+para ir de um diretório a outro:
+~$ cd /home/
+'.' significa o diretório atual e '..', o diretório anterior.
+~$ cd ..
+alias('cd ..') = ..
+para voltar para o diretório home independente de onde esteja:
+~$ cd $HOME
+ou
+~$ cd ~
+alias('cd ~') = ~
+para ir para a raiz (root):
+~$ cd /
+
+para ver o caminho do diretório atual:
+~$ pwd
+
+para ver os arquivos dentro do diretório atual:
+~$ ls
+para ver os arquivos e suas informações:
+~$ ls -l
+se quiser ver os arquivos escondidos:
+~$ ls -a
+ou
+~$ ls --all
+se quiser ver os arquivos escondidos e suas informações:
+~$ ls -la
+para ver de forma recursiva todo o conteúdo dos diretórios que estão dentro do diretório atual:
+~$ ls -R
+em qualquer um desses comandos inclua "-h" para facilitar a leitura dos dados
+
+para ver informações da cpu:
+~$ lscpu
+ou, ainda, de conexões usb:
+~$ lsusb
+
+para criar um diretório no diretório atual:
+~$ mkdir <novo_dir>
+para criar várias pastas no diretório atual:
+~$ mkdir <novo_dir1> <novo_dir2> <novo_dir3>
+para criar várias pastas uma dentro da outra:
+~$ mkdir -p <novo_dir>/<novo_dir_filho>/<novo_dir_neto>
+alias('mkdir -p') = mkdir
+para apagar um diretório no diretório atual:
+~$ rmdir <nome_dir>
+porém, este comando só funciona quando o diretório está fazio. se o diretório estiver sendo usado, use:
+~$ rm -r <nome_dir>
+ou,
+~$ rm -rf <nome_dir>
+*obs.: lembrando que este comando pode ser perigoso dependendo do diretório que deseja apagar. sempre der preferência em apagar na interface gráfica.
+use '' quando houver espaços no nome da pasta ou use \ antes de cada espaço.
+
+para criar ou atualizar um arquivo já existente:
+~$ touch <novoOUnome_arq>
+alias('touch') = mk
+para apagar um arquivo no diretório atual:
+~$ rm <nome_arq>
+para que o terminal confirme a deleção do arquivo:
+~$ rm -i <nome_arq>
+alias('rm -i') = rm
+pode, incluse, ser usado junto com os outros parâmetros.
+
+para concatenar arquivo ou ver seu conteúdo, se for pequeno:
+~$ cat <nome_arq>
+ou, se quiser ler o arquivo da última à primeira linha:
+~$ tac <nome_arq>
+se o arquivo for grande:
+~$ more <nome_arq>
+por "more" não ser muito eficiente, pode-se usar:
+~$ less <nome_arq>
+com "less", pode-se subir e descer usando as setas, pode-se ir para o topo da página com "gg" e ir para o fim com "G", pode usar "/<palavra>" para encontrar uma palavra em específico. Para sair, aperte "q".
+para ler apenas o final do arquivo:
+~$ tail -<número_de_linhas> <nome_arq>
+ou, se quiser ir para a última linha:
+~$ tail -f <nome_arq>
+se o arquivo for atualizado, com este comando, a atualização aparece altomaticamente.
+em qualquer um desses comando 'tail' for substituído por 'head', aparecer o início do arquivo
+
+para escrever num arquivo ou sobrescrever:
+~$ echo "<conteúdo>" > <nome_arq>
+para não sobrescrever, mas sim, adicionar ao arquivo:
+~$ echo "<conteúdo>" >> <nome_arq>
+
+se quiser encontrar as linhas em que contém uma palavra em específico dentro de um arquivo:
+~$ grep <palavra> <nome_arq>
+ou
+~$ ag <palavra> <nome_arq>
+o "ag" precisa baixar se ainda não tiver:
+sudo apt install silversearcher-ag
+
+para mover um arquivo para outro diretório:
+~$ mv <caminho>/<nome_arq> <caminho>/<novo_nome>
+sendo que para mudar de nome é opicional, assim como <caminho>, se o arquivo estiver no diretório atual.
+pode servir para mudar o nome do arquivo
+~$ mv <nome_arq> <novo_nome>
+
+para copiar um arquivo em outro diretório:
+~$ cp <caminho>/<nome_arq> <caminho>
+<caminho> é opcional se o arquivo estiver no diretório atual.
+
+se quiser manipular um arquivo pelo terminal:
+~$ nano <nome_arq>
+ou, através do bloco de notas:
+~$ gedit <nome_arq>
+alias('gedit') = bn
+
+--(sudo) apt---
+para limpar a memória cashé:
+~$ sudo apt clean
+alias('sudo apt clean') = cache
+para ver as dependências de qualquer app:
+~$ apt-cache depends <app>
+
+para apagar diretórios e pacotes órfãos:
+~$ sudo apt autoremove
+outra forma, é:
+~$ sudo apt remove --purge `deborphan`
+alias('sudo apt autoremove && sudo apt remove --purge `deborphan`') = orphan
+para isso, é necessário já ter o deborphan instalado:
+~$ sudo apt install deborphan
+este pacote pode servir para ver os diretórios órfãos:
+~$ deborphan
+
+para atualizações:
+~$ sudo apt update
+para instalar essas atualizações:
+~$ sudo apt upgrade
+alias('sudo apt update && sudo apt upgrade') = up
+
+para instalar pacotes e app já baixados:
+~$ sudo dpkg -i <app>
+
+--root--
+para ficar em modo root no terminal:
+~$ sudo su
+para sair
+# exit
+
+para mudar as permissões de uso:
+~$ chmod <entidade><+_ou_-><permissão> <arq_ou_dir>
+onde:
+<entidade>: u (dono), g (grupo), o (outros);
+<+_ou_->: dá ou tira;
+<premissão>: r (ler), w (escrever/modificar), x (executar)
+as permissões podem ser representadas por números:
+per|bin|n
+---|000|0
+--x|001|1
+-w-|010|2
+-wx|011|3
+r--|100|4
+r-x|101|5
+rw-|110|6
+rwx|111|7

@@ -1,0 +1,32 @@
+PIP comandos:
+1º) se o PIP não estiver funcionando:
+windows (botão) -> procure o python e com o botão esquerdo vá para em abrir local de arquivo -> procure a pasta Script -> verifique se o arquivo pip.exe existe -> se sim, Ctrl+c o camiho -> vá nos arquivos e Este Computador -> aperte com o botão esquerdo -> escolha Propriedades -> Configurações avançadas do sistema -> Variáveis de ambiente -> selecione Path -> Editar -> Novo -> Ctrl+v o caminho -> OK.
+
+2º) para ver a versão do PIP:
+>>> pip --version
+
+2º) para atualizar a versão do PIP:
+>>> pip install --upgrade pip
+
+3º) para instalar qualquer biblioteca:
+>>> pip install <packagename>
+
+4º) para instalar qualquer biblioteca com uma versão anterior:
+>>> pip install <packagename>==<versão desejada>
+
+5º) para atualizar qualquer biblioteca:
+>>> pip install --upgrade <packagename>
+
+6º) para desinstalar qualquer biblioteca:
+>>> pip uninstall <packagename>
+
+7º) para listar todas as bibliotecas já baixadas:
+>>> pip list
+ou
+>>> pip freeze
+
+8º) para listar todas as bibliotecas desatualizadas:
+>>> pip list --outdated
+
+9º) para atualizar todas as bibliotecas desatualizadas de uma só vez:
+>>> pip freeze | %{$_.split('==')[0]} | %{pip install --upgrade $_}

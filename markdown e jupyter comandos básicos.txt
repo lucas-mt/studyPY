@@ -1,0 +1,89 @@
+markdown comandos:
+1º) para títulos, usa-se:
+# <maior>
+## <grande>
+### <médio>
+#### <normal>
+##### <pequeno>
+###### <minúsculo>
+
+2º) para colocar em negrito:
+**<texto>**
+ou
+__<texto>__ (dois underlines)
+
+3º) para colocar em itálico:
+*<texto>*
+ou
+_<texto>_
+
+3º) para riscar o texto:
+~~<texto>~~
+
+4º) para separar um título do resto do texto use:
+---
+ou
+***
+
+5º) para listar com número:
+1. <item1>
+2. <item2>
+não é necessário seguir a ordem 1, 2, 3, 4, ... pois a linguagem corrige isso automaticamente.
+e, para colocar subitens nos items já enumerados:
+3. <item3>
+   1. <subitem1> (são três espaços a frente do '1.')
+
+6º) para listar com pontos:
+* (ou -) <item1>
+* (ou -) <item2>
+e, os subitens:
+* (ou -) <item3>
+   * (ou -) <subitem1> (três espaços)
+
+7º) para listar tarefas:
+- [ ] <tarefa1>
+- [ ] <tarefa2>
+e, se a tarefa tiver sido cumprida, é só substituir o espaço entre os colchetes or um x:
+- [x] <tarefa1>
+- [ ] <tarefa2>
+
+8º) para colocar imagens:
+![<um descrição da imagem>](<URL da foto>)
+
+9º) para criar links, basta tirar a exclamação do comando acima:
+[<uma descrição do link>](<URL>)
+
+10º) para criar uma tabela:
+c1 | c2 | c3 | ... | cn
+---|---|---|...|---
+a11 | a12 | a13 | ... | a1n
+a21 | a22 | a23 | ... | a2n
+... | ... | ... | ... | ...
+am1 | am2 | am3 | ... | mn
+
+11º) para destacar trechos de programa use `<código>`
+se for mais de uma linha, faça
+```
+<código>
+```
+
+12º) para destacar uma citação, use o
+> <citação>
+ou uma citação dentro de outra citação:
+>> <citação>
+
+jupyter comandos:
+(os comandos a seguir são no command mode (aperte 'Esk'))
+0º) para abrir, na linha de comando escreva "jupyter lab"
+1º) basta apertar a tecla 'a' para criar uma célula acima da célula atual
+2º) apertando 'b', cria uma célula abaixo da célula atual
+3º) para uma célula ser de markdown, aperte a tecla 'm'
+4º) se aperta 'y', a célula passa a ser de código
+5º) apertando d duas vezes, a célula selecionada é apagada
+6º) Ctrl+Enter executa a célula
+7º) Alt+Enter executa a célula e cria uma nova célucla logo abaixo da célula atual
+8º) Shift+Enter executa a célula e seleciona a célula de baixo
+9º) para converter de .ipynb para .pdf, use o comando:
+>>> pip install -U notebook-as-pdf
+se ainda não tiver baixado esse pacote. Em seguida, use o comando:
+>>> jupyter-nbconvert --to PDFviaHTML <nome_do_arquivo>.ipynb
