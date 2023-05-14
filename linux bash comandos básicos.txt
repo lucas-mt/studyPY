@@ -84,14 +84,28 @@ com um ponto no início será procurado arquivos com aquela extensão:
 lembre-se que há diferença entre maiúscula e minúscula.
 
 se quiser encontrar um arquivo:
-~$ find . -name <nome_arq>
+~$ find <dir> -name <nome_arq>
 se quiser encontrar todos os arquivos que començam com determinados caracteres:
-~$ find . -name *<nome_arq>
+~$ find <dir> -name *<nome_arq>
 se quiser aqueles que terminam:
-~$ find . -name <nome_arq>*
+~$ find <dir> -name <nome_arq>*
 se quiser encontrar qualquer um:
-~$ find . -name *<nome_arq>*
-alias('find . -name') = ache
+~$ find <dir> -name *<nome_arq>*
+para ignorar entre maiúscula e minúscula:
+~$ find <dir> -type f -iname <arq>
+alias('find . -type f -iname') = ache
+*obs.: use . para a pesquisa ser a partir do diretório atual, e / para a pesquisa ser a partir do root.
+omitindo "-type f/d", este comando é capaz de encontrar arquivos e diretórios ao mesmo tempo.
+se quiser encontrar arquivos por suas permissões:
+~$ find <dir> -perm <permissões_em_número>
+se quiser encontrar arquivos por seu tamanho:
+~$ find <dir> -size <tamanho_em_bytes>
+neste caso, use + se desejar arquivos de tamanhos maiores que o passado ou - se desejar menores. pode ser passado G para gigabyte, M para megabyte, k para kilobyte. por exemplo: "find . -size +1M" ou seja, vai encontrar os arquivos maiores de 1 megabytes. 
+estes comando podem, ainda, receber o argumento -not que retorna tudo aquilo que não foi pedido.
+este comando é recursivo, então, pode gerar uma resposta muito grande. para evitar isto:
+~$ find <dir> -maxdepth <valor> <pesquisa>
+os valores podem ser a partir de 1, não havendo recursão, a 2, recursando apenas uma vez, e, assim, sucessivamente.
+lembrando que várias formas de pesquisas podem ser feitas ao mesmo tempo. por exemplo: "find . -perm 744 -name *.py"
 
 --manipulando arquivos e diretórios--
 para ir de um diretório a outro:
@@ -179,9 +193,19 @@ para não sobrescrever, mas sim, adicionar ao arquivo:
 se quiser encontrar as linhas em que contém uma palavra em específico dentro de um arquivo:
 ~$ grep <palavra> <nome_arq>
 ou
+~$ grep -i <palavra> <nome_arq>
+para não fazer distinção entre caixa alta e baixa.
+para que o comando dê o número da linha:
+~$ grep -n <palavra> <nome_arq>
+outra forma de encontrar palavras em um arquivo é:
 ~$ ag <palavra> <nome_arq>
 o "ag" precisa baixar se ainda não tiver:
 sudo apt install silversearcher-ag
+
+o flag '-exec' pode juntar dois comandos no terminal onde o último só será executado se o primeiro também for. por exemplo:
+~$ find . -type f -iname *.py -exec grep -n def {} +
+ou seja, vai procurar por arquivos que terminal em .py e, depois, procurar neste arquivos a palavra def, se encontrar, mostra o número da linha.
+{} + no final indica que é o fim da flag '-exec'.
 
 para mover um arquivo para outro diretório:
 ~$ mv <caminho>/<nome_arq> <caminho>/<novo_nome>
@@ -231,6 +255,12 @@ para ficar em modo root no terminal:
 para sair
 # exit
 
+para mudar a propriedade de um arquivo/diretório:
+~$ sudo chown <entidade1>:<entidade2> <arq_ou_dir>
+<entidade1> reference a quem a aplicação pertence, geralmente é o dono da máquina (user). já <entidade2>, a quem a aplicação é compartilhada, geralmente o dono (user) ou o grupo (root).
+se desejar mudar a propriedade de todas as aplicações dentro de um diretório, de forma recursiva:
+~$ sudo chown -R <entidade1>:<entidade2> <dir>
+
 para mudar as permissões de uso:
 ~$ chmod <entidade><+_ou_-><permissão> <arq_ou_dir>
 onde:
@@ -247,3 +277,5 @@ r--|100|4
 r-x|101|5
 rw-|110|6
 rwx|111|7
+se desejar mudar a permissões de todas as aplicações dentro de um diretório, de forma recursiva:
+~$ sudo chmod -R <entidade><+_ou_-><permissão> <dir>
