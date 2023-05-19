@@ -29,4 +29,6 @@ ou
 >>> pip list --outdated
 
 9º) para atualizar todas as bibliotecas desatualizadas de uma só vez:
->>> pip freeze | %{$_.split('==')[0]} | %{pip install --upgrade $_}
+>>> pip list --outdated > <arquivo>.txt
+depois, retire todas as informações adicionais do arquivo, dexando apenas os nomes das bibliotecas e, em seguida,
+>>> pip install -r <arquivo>.txt --upgrade 
