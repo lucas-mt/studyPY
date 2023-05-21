@@ -9,12 +9,20 @@ ctrl+l
 
 aperte duas vezes 'tab' para ver as sugestões de diretórios e arquivos.
 
-para ver como está a cpu está trabalhando e quanto de memória está sendo usado:
+para ver como está a cpu está trabalhando e as aplicações:
 ~$ htop
+ou
+~$ top
+ou, se desejar encontrar uma aplicação específica:
+~$ ps aux | grep <app>
+para ver apenas a ID da aplicação:
+~$pgrep <app>
 
 uma forma de fechar qualquer app, se este travar, por exemplo:
 ~$ xkill
-em seguida, aperta na tab que quer fechar
+em seguida, aperta na tab que quer fechar.
+ou,
+~$ kill -9 <ID_app>
 
 uma forma de ver o endereço IP de qualquer site é:
 ~$ nslookup <site>
@@ -93,7 +101,6 @@ se quiser encontrar qualquer um:
 ~$ find <dir> -name *<nome_arq>*
 para ignorar entre maiúscula e minúscula:
 ~$ find <dir> -type f -iname <arq>
-alias('find . -type f -iname') = ache
 *obs.: use . para a pesquisa ser a partir do diretório atual, e / para a pesquisa ser a partir do root.
 omitindo "-type f/d", este comando é capaz de encontrar arquivos e diretórios ao mesmo tempo.
 se quiser encontrar arquivos por suas permissões:
@@ -114,7 +121,7 @@ para ir de um diretório a outro:
 ~$ cd ..
 alias('cd ..') = ..
 para voltar para o diretório home independente de onde esteja:
-~$ cd $HOME
+~$ cd ~$HOME
 ou
 ~$ cd ~
 alias('cd ~') = ~
@@ -156,7 +163,7 @@ porém, este comando só funciona quando o diretório está fazio. se o diretór
 ~$ rm -r <nome_dir>
 ou,
 ~$ rm -rf <nome_dir>
-*obs.: lembrando que este comando pode ser perigoso dependendo do diretório que deseja apagar. sempre der preferência em apagar na interface gráfica.
+*obs.: lembrando que este comando pode ser perigoso dependendo do diretório que deseja apagar. sempre dê preferência em apagar na interface gráfica.
 use '' quando houver espaços no nome da pasta ou use \ antes de cada espaço.
 
 para criar ou atualizar um arquivo já existente:
@@ -223,8 +230,17 @@ ou, através do bloco de notas:
 ~$ gedit <nome_arq>
 alias('gedit') = bn
 
+se quiser automatizar comandos que devem ocorrer em horários e dias específicos:
+~$ crontab -e
+ou, se o comando precisar de permissões especiais:
+~$ sudo crontab -e
+a partir deste comano, um arquivo abrirá, e nele deve ser passado as informações:
+~$ m(0 - 59) h(0 - 23) dia_do_mês(1 - 31) mês(1 - 12) dia_da_semana(0 - 6) comando
+o comando deve ser escrito em apenas uma linha.
+com exceção do comando, todas as outras informações podem ser subtituídas por * se o horário não for específicado.
+
 --(sudo) apt---
-para limpar a memória cashé:
+para limpar a memória caché:
 ~$ sudo apt clean
 alias('sudo apt clean') = cache
 para ver as dependências de qualquer app:
@@ -279,3 +295,21 @@ rw-|110|6
 rwx|111|7
 se desejar mudar a permissões de todas as aplicações dentro de um diretório, de forma recursiva:
 ~$ sudo chmod -R <entidade><+_ou_-><permissão> <dir>
+
+para criar um novo usuário, uma nova conta no computador:
+~$ sudo adduser <nickname_usuário>
+ou, se quiser que este novo usuário possa usar 'sudo':
+~$ sudo adduser <nickname_usuário> sudo
+neste caso, se quiser ir de uma conta a outra:
+~$ su <nickname_usuário>
+é necessário saber a senha da conta que está indo.
+para apagar um usuário, uma conta:
+~$ sudo deluser <nickname_usuário>
+
+para criar um grupo:
+~$ sudo groupadd <grupo>
+para adicionar um usuário a este grupo:
+~$ sudo adduser <nickname_usuário> <grupo>
+
+para trocar a senha de usuário:
+~$ sudo passwd <nickname_usuário>

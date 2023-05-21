@@ -98,3 +98,6 @@ para criar um arquivo .gitignore global, faça:
 em seguida, escreva manualmente o nome do arquivo ou diretório que não quer que seja commitado:
 ~$ echo "<arq_ou_dir>" >> .gitignore
 pode colocar caracteres-coringas se não quiser especificar um arquivo ou diretório, mas desejar excluir todos que tenham alguma característica.
+
+18º) para apagar arquivos ou diretórios:
+~$ git remove -rf <arq_ou_dir>
