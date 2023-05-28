@@ -313,3 +313,38 @@ para adicionar um usuário a este grupo:
 
 para trocar a senha de usuário:
 ~$ sudo passwd <nickname_usuário>
+
+--SSH--
+para configurar SSH na máquina local, é antes necessário baixar o seguinte pacote, se já não tiver:
+~$ sudo apt install openssh-server
+em seguida, é necessário configurar indo em:
+~$ sudo nano /etc/ssh/sshd_config
+neste arquivo, as seguintes configurações têm de ser mudadas:
+~$ port 22 -> port <outra_port>
+~$ PermitRootLogin without-password -> PermitRootLogin no
+e, por último, abaixo de UsePAM yes
+~$ AllowUsers <lista_de_user_permitidos>
+por fim, de volta no terminal, põe:
+~$ sudo systemctl restart ssh
+
+para poder usar o terminal de outra máquina, se esta tiver um SSH host:
+~$ ssh <endereço>
+<endereço> pode ser <user_name@IP_da_máquina> ou <user_name@remote_host>
+por exemplo, '~$ ssh lucas-mt@pointybracket.net'
+para sair, basta:
+~$ exit
+
+para transferir arquivos entre máquina:
+~$ sftp <endereço>
+com <endereço> sendo o mesmo da conexão SSH.
+o prompt que abre recebe os mesmos comandos que o terminal do linux. Acrescenta-se:
+sftp> lls
+serve para ver os arquivos da pasta local em que se abriu a conexão sftp, em contrate a:
+sftp> ls
+que ver os arquivos da máquina remota
+para passar um arquivo da máquina local para a remota:
+sftp> put <arq>
+para pegar um arquivo da máquina remota para a local:
+sftp> get <arq>
+para sair:
+~$ exit
