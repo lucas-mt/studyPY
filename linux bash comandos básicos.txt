@@ -24,21 +24,10 @@ em seguida, aperta na tab que quer fechar.
 ou,
 ~$ kill -9 <ID_app>
 
-uma forma de ver o endereço IP de qualquer site é:
-~$ nslookup <site>
-
 para saber o nome do usuário:
 ~$ whoami
 para saber o nome da máquina:
 ~$ hostname
-
-para saber o IP da máquina:
-~$ hostname -I
-ou, se quier informações mais completas:
-~$ ip a
-
-para checar se um site está respondendo:
-~$ ping <site>
 
 para ver informações do uso de memória:
 ~$ free -h
@@ -72,6 +61,7 @@ a partir daí, usa o apelido quando quiser utilizar este comando. Porém, só se
 para tornar o alias fixo é necessário, em ~/, encontrar o arquivo .bashrc, que é nativo do sistema, e, nele, adicionar os alias que desejar; ou, encontrar o arquivo .bash_aliases, que é criado pelo usuário, e, nele, adicionar os alias que desejar. 
 para ver todos os apelidos registrados, temporários ou não:
 ~$ alias
+
 
 --buscando por caracteres no terminal--
 use * quando quiser indicar em que canto da palavra tal caractere está; use ? quano não souber qual caractere ocupa aquela posição.
@@ -113,6 +103,7 @@ este comando é recursivo, então, pode gerar uma resposta muito grande. para ev
 ~$ find <dir> -maxdepth <valor> <pesquisa>
 os valores podem ser a partir de 1, não havendo recursão, a 2, recursando apenas uma vez, e, assim, sucessivamente.
 lembrando que várias formas de pesquisas podem ser feitas ao mesmo tempo. por exemplo: "find . -perm 744 -name *.py"
+
 
 --manipulando arquivos e diretórios--
 para ir de um diretório a outro:
@@ -239,6 +230,7 @@ a partir deste comano, um arquivo abrirá, e nele deve ser passado as informaç�
 o comando deve ser escrito em apenas uma linha.
 com exceção do comando, todas as outras informações podem ser subtituídas por * se o horário não for específicado.
 
+
 --(sudo) apt---
 para limpar a memória caché:
 ~$ sudo apt clean
@@ -264,6 +256,7 @@ alias('sudo apt update && sudo apt upgrade') = up
 
 para instalar pacotes e app já baixados:
 ~$ sudo dpkg -i <app>
+
 
 --root--
 para ficar em modo root no terminal:
@@ -313,6 +306,60 @@ para adicionar um usuário a este grupo:
 
 para trocar a senha de usuário:
 ~$ sudo passwd <nickname_usuário>
+
+
+--networking--
+uma forma de ver o endereço IP de qualquer site é:
+~$ nslookup <site>
+
+para saber o IP da máquina:
+~$ hostname -I
+ou, se quier informações mais completas:
+~$ ip a
+
+para checar se um site está respondendo:
+~$ ping <site>
+
+para ver informações sobre as conexões existentes com a internet, baixe:
+~$ sudo apt install net-tools
+se ainda, não tiver.
+então, escreva:
+~$ ifconfig
+
+para ver os pacotes que são recebido e enviados, baixe, se ainda não tiver:
+~$ sudo apt install tcpdump
+então,
+~$ sudo tcpdump
+será mostrado um infinito número de pacotes sendo trocados com a internet. Por isso, se quiser limitar o número de pacotes que deseja ver:
+~$ sudo tcpdump -c <quantidade>
+para mostrar as conexões que são feitas apenas com uma determinada interface:
+~$ sudo tcpdump -i <interface>
+para mostrar as conexões que são feitas apenas com uma determinada porta:
+~$ sudo tcpdump port <número>
+
+para ver o status das conexões que o computador está fazendo:
+~$ netstat -r
+ou, se quiser ver o IP dessas conexões:
+~$ netstat -nr
+para ver o uso de cada device do kernel:
+~$ netstat -i
+para ver as conexões ativas com a internet:
+~$ netstat -ta
+
+para mapear todas as portas e conexões que um device usa, baixe, se ainda não tiver:
+~$ sudo apt intstall nmap
+em seguida:
+~$ nmap <ip_device>
+para informações mais completas:
+~$ nmap -v <ip_device>
+use, ainda, -6 se o ip for hexadecimal.
+pode ver de sites, também:
+~$ nmap <site>
+criando um arquivo com todos os IP que se deseja mapear, use o comando:
+~$ nmap -iL <arq>
+se, no momento do mapeamento, desejar ver, também, a versão do OS:
+~$ nmap -A <ip_device>
+
 
 --SSH--
 para configurar SSH na máquina local, é antes necessário baixar o seguinte pacote, se já não tiver:
