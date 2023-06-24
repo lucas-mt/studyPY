@@ -1,0 +1,69 @@
+--declaração de variáveis--
+para declarar variáveis:
+> var <- <valor>
+ou
+> <valor> -> var
+ou
+> var = <valor>
+é convencionado usar '<-' para declarar variáveis, não usar '->' e usar '=' para declarar funcões.
+
+--contêineres--
+1) a função c(<valores>) cria uma lista simples:
+> a <- c(10, 5, 15, 20)
+> a
+[1] 10 5 15 20
+esta lista pode, inclusive, receber indexing:
+> a[1]
+[1] 10
+> a[4]
+[1] 20
+observe que a contagem começa no 1, não no 0.
+observe, também, que este estrutura só aceita um tipo de variável por vez. então:
+> infos <- c(100, TRUE, 'eu')
+> infos
+[1] '100' 'TRUE' 'eu'
+ou seja, tudo é interpretado como string, apresar de ter sido passado valors booleanos e números, originalmente.
+se for algo do tipo
+> infos <- c(100, TRUE, 23)
+> infos
+[1] 100 1 23
+ou seja, transformou o valore booleano em numérico.
+2) a função 'as.factor(<valores>)' retorna uma lista que contabiliza quantas vezes cada valor se repete.
+3) a função 'list(<valores>)' recebe uma sequência de valores e retorna uma lista. diferente dos de cima, uma lista recebe valores de tipos diferentes.
+para acessar uma lista dentro de outra lista e, então, acessar os valores desta lista interna interna, é semelhante à python, no entando, é necessário usar um número de chaves que represente a interiorizaçao da lista:
+> infos <- list(1, 'olá!', TRUE, list(1, 3, 4, 5))
+> infos[4]
+[1] 300 722 21 0
+> infos[4][2]
+[1] NULL
+> infos[[4]][2]
+[1] 722
+4) a função 'str()' recebe uma lista e retorna uma nova lista contendo os tipo de cada valor dentro da lista original.
+5) a função 'matrix()' recebe uma sequência de valores do mesmo tipo, seguido do argumento 'nrow=', isto pe, o número de linha e, 'ncol=' o número de colunas, da quais são opcionais.
+para acessar as informações numa matriz, é semelhante ao numpy, observe:
+> infos <- matrix(1:9, nrow = (3))
+> infos
+    [,1] [,2] [,3]
+[1]  1    4    7
+[2]  2    5    8
+[3]  3    6    9
+> infos[2, 3]
+[1] 8
+o primeiro valor é referente às linnhas, e o segundo, às colunas.
+
+--operadores--
+1) os operadores matemáticos são: +, -, /, *, ** ou ^.
+observe que a concatenação de strings não ocorre por '+', mas pela função 'str_c(<strings>)' que recebe as strings que se deseja concatenar. para isto, é necessário importar o módulo stringr, que, caso não tenha, é necessário baixar.
+2) os operadores booleanos são: ==, !=, >, >=, <, <=, & (and), | (or), ! (not).
+
+--algumas funções importantes--
+1) a função 'as.integer(<número>)' recebe um valor numérico e o transforma em inteiro.
+2) a função 'round(<número>)' arredonda um valor real.
+3) as funções 'is.vector()', 'is.numeric()', 'is.character()', 'is.list()', etc., recebem uma variável e verificam se esta é o tipo que a função indifca.
+4) a função 'mode(<variável>)' retorna o tipo de variável ou o tipo contido na variável.
+5) a função 'class(<variável>)' retorna classe que a variável é.
+6) a função 'summary(<lista>)' recebe uma lista e retorna alguns parâmetros estatísticos, como a média e a mediana, ou, no caso de um objeto 'as.factor', retorna os valores e a quantidade de vezes que tal valor se repete.
+
+--plots--
+1) a função 'plot(x, y)' recebe x e y, pode, ainda, receber os parâmetros xlab e ylab, se quiser dar nome a elas.
+2) importando a biblioteca txtplot, é possível usar esta função semelhante à de cima, porém, será plotado em string.
