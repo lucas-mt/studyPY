@@ -393,3 +393,16 @@ para pegar um arquivo da máquina remota para a local:
 sftp> get <arq>
 para sair:
 ~$ exit
+
+
+--firewall--
+para ativar o firewall, se ainda não estiver ativado:
+~$ sudo ufw enable
+para desativar:
+~$ sudo ufw disable
+para verificar o status do firewall:
+~$ sudo ufw status
+para ter informações mais completas:
+~$ sudo afw status verbose
+se desejar a interface gráfica e ainda não tiver:
+~$ sudo apt install gufw
