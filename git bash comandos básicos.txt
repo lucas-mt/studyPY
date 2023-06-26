@@ -4,7 +4,7 @@ para baixar:
 ~$ sudo apt install git
 para usar no ubuntu, é necessário ter uma chave SSH, que consegue da seguinte forma:
 a) no terminal escreva:
-~$ ssh-keygen -C "lucas.mdlira@gmail.com"
+~$ ssh-keygen -C "<email>"
 será necessário criar uma senha e confirmá-la.
 copie o endereço que aparece diante da frase "your public key has been saved in <endereço_local>"
 ponha:
@@ -16,8 +16,8 @@ c) de volta no terminal, ponha:
 ~$ ssh -T git@github.com
 confirme o que se pede com "yes". quando apertar enter, será solicitado aquela senha criada anteriormente.
 para finalizar, registre o email e o usuário:
-~$ git config --global user.name "lucas-mt"
-~$ git config --global user.email lucas.mdlira@gmail.com
+~$ git config --global user.name "<user_name_do_github>"
+~$ git config --global user.email "<email>"
 teste e veja se funcionou a configuração inicial:
 ~$ git config --list
 ou,
