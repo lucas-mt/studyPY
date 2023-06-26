@@ -51,12 +51,11 @@ ou, para informações mais completas:
 
 para ver o hitórico de todos os comandos usados no terminal:
 ~$ history
-alias('history') = h
 use !! para completar a linha de comando com o comando anterior.
 use !<número_linha> observado no comando "history" para que este comando seja copiado.
 
 para criar apelidos e falicitar comandos:
-~$ alias <apelido>=<comando>
+~$ alias <apelido>='<comando>'
 a partir daí, usa o apelido quando quiser utilizar este comando. Porém, só serve enquanto o terminal estiver aberto. Quando fechar, o sistema irá esquecer deste apelido.
 para tornar o alias fixo é necessário, em ~/, encontrar o arquivo .bashrc, que é nativo do sistema, e, nele, adicionar os alias que desejar; ou, encontrar o arquivo .bash_aliases, que é criado pelo usuário, e, nele, adicionar os alias que desejar. 
 para ver todos os apelidos registrados, temporários ou não:
@@ -164,7 +163,6 @@ para apagar um arquivo no diretório atual:
 ~$ rm <nome_arq>
 para que o terminal confirme a deleção do arquivo:
 ~$ rm -i <nome_arq>
-alias('rm -i') = rm
 pode, incluse, ser usado junto com os outros parâmetros.
 
 para concatenar arquivo ou ver seu conteúdo, se for pequeno:
@@ -242,7 +240,7 @@ para apagar diretórios e pacotes órfãos:
 ~$ sudo apt autoremove
 outra forma, é:
 ~$ sudo apt remove --purge `deborphan`
-alias('sudo apt autoremove && sudo apt remove --purge `deborphan`') = orphan
+alias('sudo apt autoremove') = orphan
 para isso, é necessário já ter o deborphan instalado:
 ~$ sudo apt install deborphan
 este pacote pode servir para ver os diretórios órfãos:
@@ -252,7 +250,7 @@ para atualizações:
 ~$ sudo apt update
 para instalar essas atualizações:
 ~$ sudo apt upgrade
-alias('sudo apt update && sudo apt upgrade') = up
+alias('sudo apt update && sudo apt list --upgradable && sudo apt upgrade') = up
 
 para instalar pacotes e app já baixados:
 ~$ sudo dpkg -i <app>
