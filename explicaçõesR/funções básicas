@@ -1,0 +1,22 @@
+- as.integer(<número>):
+recebe um valor numérico e o transforma em inteiro.
+
+- round(<número>):
+arredonda um valor real.
+
+- verificadores:
+is.vector(<var>) verifica se é um vetor
+is.numeric(<var>) verifica se é um valore numérico
+is.character(<var>) verifica se é uma string
+is.list(<var>) verifica se é uma lista
+etc.
+
+- mode(<variável>):
+retorna o tipo de variável ou o tipo contido na variável.
+
+- class(<variável>):
+retorna classe que a variável é.
+
+- summary(<lista>):
+recebe uma lista e retorna alguns parâmetros estatísticos, como a média e a mediana, ou, no caso de um objeto 'as.factor', retorna os valores e a quantidade de vezes que tal valor se repete.
+

@@ -1,0 +1,9 @@
+--declaração de variáveis--
+para declarar variáveis:
+> var <- <valor>
+ou
+> <valor> -> var
+ou
+> var = <valor>
+é convencionado usar '<-' para declarar variáveis, não usar '->' e usar '=' para declarar funcões.
+

@@ -1,0 +1,22 @@
+- list(<valores>)
+recebe uma sequência de valores e retorna uma lista. diferente dos de cima, uma lista recebe valores de tipos diferentes.
+para acessar uma lista dentro de outra lista e, então, acessar os valores desta lista interna interna, é semelhante à python, no entando, é necessário usar um número de chaves que represente a interiorizaçao da lista:
+> infos <- list(1, 'olá!', TRUE, list(1, 3, 4, 5))
+> infos[4]
+[1] 300 722 21 0
+
+> infos[4][2]
+[1] NULL
+
+> infos[[4]][2]
+[1] 722
+
+se desejar mudar um valor da lista, basta
+> info [2] <- 'hello'
+> infos
+[1] 1 'hello' TRUE [1, 3, 4, 5]
+
+
+- str(<lista>)
+recebe uma lista e retorna uma nova lista contendo os tipo de cada valor dentro da lista original.
+

@@ -1,0 +1,18 @@
+- os operadores matemáticos:
++ (soma)
+- (subtração)
+/ (divisão)
+* (multiplicação)
+** ou ^ (exponenciação)
+observe que a concatenação de strings não ocorre por '+', mas pela função 'str_c(<strings>)' que recebe as strings que se deseja concatenar. para isto, é necessário importar o módulo stringr, que, caso não tenha, é necessário baixar.
+
+- os operadores booleanos:
+== (igual)
+!= (diferente)
+> (maior)
+>= (maior ou igual)
+< (menor)
+<= (menor ou igual)
+& (e)
+| (ou)
+! (não)

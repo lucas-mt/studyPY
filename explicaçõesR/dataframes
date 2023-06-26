@@ -1,0 +1,9 @@
+- setwd(<caminho>):
+para acessar um dataframe que esteja, por exemplo, em um arquivo csv, é necessário passar, antes, o caminho da pasta em que este arquivo se encontra.
+
+
+- read.csv(<arq.csv>):
+para acessar este arquivo, basta usar uma função muito semelhante a como pandas do python faz:
+> df <- read.csv(<arq.csv>)
+agora, a variável df pode ser usada como um dataframe, normalmente.
+

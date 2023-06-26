@@ -1,0 +1,5 @@
+- plot(x, y):
+recebe x e y, pode, ainda, receber os parâmetros xlab e ylab, se quiser dar nome a elas.
+
+- txtplot(x, y):
+importando a biblioteca txtplot, é possível usar esta função semelhante à de cima, porém, será plotado em string.

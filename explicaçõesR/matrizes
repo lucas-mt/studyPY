@@ -1,0 +1,14 @@
+- matrix():
+recebe uma sequência de valores do mesmo tipo, seguido do argumento 'nrow=', isto é, o número de linha, e 'ncol=' o número de colunas, da quais são opcionais.
+para acessar as informações numa matriz, é semelhante ao numpy, observe:
+> infos <- matrix(1:9, nrow = (3))
+> infos
+    [,1] [,2] [,3]
+[1]  1    4    7
+[2]  2    5    8
+[3]  3    6    9
+
+> infos[2, 3]
+[1] 8
+
+o primeiro valor é referente às linnhas, e o segundo, às colunas.
