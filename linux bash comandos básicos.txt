@@ -238,9 +238,9 @@ para ver as dependências de qualquer app:
 
 para apagar diretórios e pacotes órfãos:
 ~$ sudo apt autoremove
+alias('sudo apt autoremove') = orphan
 outra forma, é:
 ~$ sudo apt remove --purge `deborphan`
-alias('sudo apt autoremove') = orphan
 para isso, é necessário já ter o deborphan instalado:
 ~$ sudo apt install deborphan
 este pacote pode servir para ver os diretórios órfãos:
