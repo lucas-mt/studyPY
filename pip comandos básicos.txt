@@ -1,8 +1,5 @@
 PIP comandos:
-1º) se o PIP não estiver funcionando:
-windows (botão) -> procure o python e com o botão esquerdo vá para em abrir local de arquivo -> procure a pasta Script -> verifique se o arquivo pip.exe existe -> se sim, Ctrl+c o camiho -> vá nos arquivos e Este Computador -> aperte com o botão esquerdo -> escolha Propriedades -> Configurações avançadas do sistema -> Variáveis de ambiente -> selecione Path -> Editar -> Novo -> Ctrl+v o caminho -> OK.
-
-2º) para ver a versão do PIP:
+1º) para ver a versão do PIP:
 >>> pip --version
 
 2º) para atualizar a versão do PIP:
