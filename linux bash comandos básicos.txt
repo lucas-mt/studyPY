@@ -255,6 +255,10 @@ alias('sudo apt update && sudo apt list --upgradable && sudo apt upgrade') = up
 para instalar pacotes e app já baixados:
 ~$ sudo dpkg -i <app>
 
+se arquivos .appimage não rodarem, é necessário fazer o download:
+~$ sudo apt install libfuse2
+depois, no arquivo .appimage, vá na opção propriedades e permita a execução do arquivo como um programa.
+
 
 --root--
 para ficar em modo root no terminal:
